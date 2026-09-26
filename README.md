@@ -104,20 +104,10 @@ end
 2. Use `/obfuscate` in the bot channel and upload your `.lua` / `.luau` file.
 3. Select your preset.
 
-### REST API
-Authenticated API endpoints are available for automated CI/CD workflows:
+### REST API Access
+Private REST API endpoints are available for script hub developers, commercial projects, and automated CI/CD deployment pipelines.
 
-```python
-import requests
-
-url = "https://api.baza.dev/v1/obfuscate"  # Replace with active API host
-headers = {"X-API-Key": "YOUR_API_KEY", "Content-Type": "application/json"}
-payload = {"script": "print('Protected')", "preset": "balanced", "target": "luau"}
-
-res = requests.post(url, json=payload, headers=headers)
-if res.json().get("success"):
-    print("Obfuscation completed successfully.")
-```
+To request an API key, endpoint access, and integration documentation, open a ticket in our [Discord server](https://discord.gg/2GKg4h4rrr).
 
 ---
 
