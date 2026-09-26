@@ -64,7 +64,18 @@ All builds pass a comprehensive Luau semantic verification battery:
 
 ## Performance Characteristics
 
-Benchmark measured on a 50,000 opcode loop workload:
+Benchmark measured on a 50,000 branch-and-arithmetic opcode loop workload:
+
+```lua
+-- Benchmark Workload:
+for i = 1, 50000 do
+    local step = i % 5
+    if step == 0 then acc += (i * 2) - 1
+    elseif step == 1 then acc -= (i + 3)
+    elseif step == 2 then acc += (i * 3)
+    else acc += 1 end
+end
+```
 
 | Parameter | Native Interpreter | Baza Obfuscator VM |
 | :--- | :--- | :--- |
@@ -72,7 +83,7 @@ Benchmark measured on a 50,000 opcode loop workload:
 | Execution Time | 5.00 ms | 3000.00 ms |
 | Throughput | ~10,000,000 iters/sec | 16,667 iters/sec |
 | Latency | 0.100 ms / 1k iters | 60.000 ms / 1k iters |
-| Accuracy | Baseline | Exact match (`1000030000`) |
+| Computed Result | `1000030000` | `1000030000` (Exact Match) |
 
 *Note: Virtualization introduces interpreter overhead. Best suited for application logic, security gates, licensing, and event handlers. If near-native execution speed is required for heavy math loops, consider lighter AST-focused presets.*
 
