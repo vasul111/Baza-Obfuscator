@@ -29,7 +29,7 @@
 
 Baza Obfuscator is a Luau virtualization and code protection suite designed for script creators and security research. Scripts are compiled into an encrypted binary container executed by a custom Virtual Machine, prioritizing runtime stability, closure fidelity, and zero literal token leakage.
 
-**Project Status**: `v2.4-beta` (Under active development and testing).
+**Project Status**: `v2.4-beta`.
 
 ---
 
