@@ -19,7 +19,7 @@
 [![Status](https://img.shields.io/badge/Status-Beta-success)](https://github.com)
 [![Discord](https://img.shields.io/badge/Discord-Community-5865F2)](https://discord.gg/2GKg4h4rrr)
 
-[Discord](https://discord.gg/2GKg4h4rrr) | [Architecture](#architecture) | [Security Audit](#security-audit) | [Performance](#performance-characteristics) | [Usage](#getting-started)
+[Discord](https://discord.gg/2GKg4h4rrr) | [Architecture](#architecture) | [Security Audit](#security-audit) | [Performance](#performance-characteristics) | [Usage](#getting-started) | [License](#license--notice)
 
 </div>
 
@@ -53,7 +53,12 @@ Static analysis results using automated token scanner (`static_scan.py`):
 | `shared`, `debug`, `traceback`, `getinfo` | 8 - 25 | **0** |
 | `stack overflow` | 1 - 2 | **0** |
 
-All builds pass the Mimi Luau Semantic Battery (nested closures, shared/independent upvalues, post-cleanup closure calls, bidirectional coroutines, multiret expansion).
+### Semantic Verification
+All builds pass a comprehensive Luau semantic verification battery:
+- Deep nested closures with shared and independent upvalues
+- Exported module closures executed post-cleanup
+- Coroutine bidirectional state exchange (`yield` / `resume`)
+- Multiret expansion and vararg forwarding
 
 ---
 
@@ -69,7 +74,7 @@ Benchmark measured on a 50,000 opcode loop workload:
 | Latency | 0.100 ms / 1k iters | 60.000 ms / 1k iters |
 | Accuracy | Baseline | Exact match (`1000030000`) |
 
-*Note: Virtualization introduces interpreter overhead. Best suited for application logic, security gates, licensing, and event handlers; heavy real-time math loops should run on lighter AST presets.*
+*Note: Virtualization introduces interpreter overhead. Best suited for application logic, security gates, licensing, and event handlers. If near-native execution speed is required for heavy math loops, consider lighter AST-focused presets.*
 
 ---
 
@@ -100,13 +105,13 @@ payload = {"script": "print('Protected')", "preset": "balanced", "target": "luau
 
 res = requests.post(url, json=payload, headers=headers)
 if res.json().get("success"):
-    print("Obfuscation successful.")
+    print("Obfuscation completed successfully.")
 ```
 
 ---
 
 ## License & Notice
 
-Baza Obfuscator core binaries and VM compiler components are proprietary.
+Baza Obfuscator core binaries and VM compiler components are proprietary. See [LICENSE](./LICENSE) for details.
 
 This software is provided for educational security research and intellectual property protection.
