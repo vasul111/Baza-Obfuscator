@@ -11,7 +11,7 @@
 ═════════════════════════════════════════════════════════════════════════════════════════
 ```
 
-# 🛡️ Baza Obfuscator (v2.4)
+#  Baza Obfuscator (v2.4)
 ### *Next-Generation Cryptographic Luau Virtual Machine & Script Protection Engine*
 
 [![Discord](https://img.shields.io/discord/1234567890?color=5865F2&label=Discord&logo=discord&logoColor=white)](https://discord.gg/2GKg4h4rrr)
@@ -26,7 +26,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 **Baza Obfuscator** is an enterprise-grade Luau obfuscation and virtualization suite specifically built for commercial Roblox scripters, UI library authors, and software protection researchers.
 
@@ -34,38 +34,38 @@ Unlike conventional AST renamers or public IronBrew/PSU forks that are easily de
 
 ---
 
-## 🛡️ Core Security Architecture
+##  Core Security Architecture
 
-### 1. 🔐 Cryptographic Bytecode Container
+### 1.  Cryptographic Bytecode Container
 * **ChaCha20 Stream Cipher**: Bytecode blocks are encrypted with a 256-bit stream cipher using randomized nonces.
 * **HalfSipHash-2-4 MAC**: Authenticates payload integrity prior to execution to detect tampering or byte patching.
 * **LFSR Dynamic Key Derivation**: Decryption keys are split across multiple shares and reconstructed at runtime via pseudo-random polynomial step functions.
 
-### 2. 🧬 16 Polymorphic Instruction Memory Layouts
+### 2.  16 Polymorphic Instruction Memory Layouts
 * Every build randomly selects one of 16 distinct byte-packing layouts (`layout_id 0..15`).
 * Instruction offsets (`Opcode`, `A`, `B`, `C`, `Flags`, `F`, `M`) are shuffled across a 16-byte aligned binary record.
 * Static bytecode analyzers and universal de-virtualizers cannot rely on hardcoded instruction field locations.
 
-### 3. 👻 Zero-Leak Static Scanner Immunity
+### 3.  Zero-Leak Static Scanner Immunity
 * Produces **0 literal string occurrences** of sensitive executor globals and reverse-engineering terms:
   ```
   getgenv, getrenv, getfenv, shared, debug, traceback, getinfo, stack overflow
   ```
 * All host environment resolutions utilize encrypted XOR proxy arrays and runtime hash lookup tables.
 
-### 4. 🛡️ Safe-Bounds Buffer Memory Parser
+### 4.  Safe-Bounds Buffer Memory Parser
 * Strict physical buffer boundary tracking (`_tot_bl`) eliminates memory faults, infinite loops, and unhandled exceptions on corrupt or truncated payloads.
 * Built-in recursive proto-depth limiter (`depth <= 64`) and constant validation tables.
 
-### 5. 🌐 Universal Executor & Clean Roblox Tolerance
+### 5.  Universal Executor & Clean Roblox Tolerance
 * Engineered and validated on clean Roblox Game Clients, standalone Luau CLI, and all major executors (**Wave, Solara, Swift, Delta, Fluxus, etc.**).
 * Zero false-positive bans on `_G` metatables or executor environment wrappers.
 
 ---
 
-## 📊 Performance Benchmarks
+##  Performance Benchmarks
 
-### ⏱️ Virtual Machine Execution Overhead
+###  Virtual Machine Execution Overhead
 Heavy stress test benchmark (50,000 full-dispatch opcode loop iterations):
 
 | Metric | Native Interpreter | Baza Obfuscator VM | Status |
@@ -78,7 +78,7 @@ Heavy stress test benchmark (50,000 full-dispatch opcode loop iterations):
 
 ---
 
-### 🔍 Static Security Audit (`static_scan.py`)
+###  Static Security Audit (`static_scan.py`)
 Direct audit comparison against typical public obfuscators:
 
 | Sensitive Literal Token | Typical Public Obfuscator / Fork | Baza Obfuscator | Protection Level |
@@ -94,7 +94,7 @@ Direct audit comparison against typical public obfuscators:
 
 ---
 
-### 🧪 Luau Semantic Fidelity Verification
+###  Luau Semantic Fidelity Verification
 Baza passes 100% of Mimi's core semantic test suites:
 
 - [x] **Deep Nested Closures**: Shared & independent upvalue instances retain state correctly.
@@ -105,7 +105,7 @@ Baza passes 100% of Mimi's core semantic test suites:
 
 ---
 
-## ⚔️ Comparison Matrix
+##  Comparison Matrix
 
 | Feature | Baza Obfuscator | IronBrew / Forks | MoonSec / PSU Clones | AST-Only Scramblers |
 | :--- | :---: | :---: | :---: | :---: |
@@ -119,7 +119,7 @@ Baza passes 100% of Mimi's core semantic test suites:
 
 ---
 
-## 🚀 How to Use
+##  How to Use
 
 ### Option 1: Discord Bot (Recommended)
 1. Join our Discord Community: [**https://discord.gg/2GKg4h4rrr**](https://discord.gg/2GKg4h4rrr)
@@ -161,7 +161,7 @@ else:
     print("Error:", data.get("error"))
 ```
 
-#### 🔹 cURL Example
+####  cURL Example
 ```bash
 curl -X POST "http://fi3.bot-hosting.net:26057/api/v1/obfuscate" \
      -H "X-API-Key: YOUR_API_KEY_HERE" \
@@ -171,7 +171,7 @@ curl -X POST "http://fi3.bot-hosting.net:26057/api/v1/obfuscate" \
 
 ---
 
-## ❓ Frequently Asked Questions (FAQ)
+##  Frequently Asked Questions (FAQ)
 
 <details>
 <summary><b>Does Baza support Roblox Luau scripts?</b></summary>
@@ -190,7 +190,7 @@ Yes. If your script exports a table containing functions (e.g. UI Libraries or M
 
 ---
 
-## 🔗 Official Links & Community
+##  Official Links & Community
 
 - **Official Discord**: [https://discord.gg/2GKg4h4rrr](https://discord.gg/2GKg4h4rrr)
 - **Developer**: `baza2000ultrapro`
